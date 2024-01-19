@@ -27,7 +27,7 @@ all: build
 build: $(LIB)
 
 $(LIB): $(OBJS)
-	@echo Building libft
+	@echo Building $(LIB)
 	@ar rcs $@ $^
 	@printf "$(GREEN)===============BUILD COMPLETED===============$(NC)\n"
 
