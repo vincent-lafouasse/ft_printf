@@ -2,23 +2,23 @@
 
 must handle:
 
-c
-s
-p
-d
-i
-u
-x
-X
-%
+- c
+- s
+- p
+- d, i int
+- u, X, x unsigned int
+- %
 
 `-O.`
 `# +`
 
-> If there are insufficient arguments for the format, the
-> behavior is undefined. If the format is exhausted while
-> arguments remain, the excess arguments are evaluated (as
-> always) but are otherwise ignored.
+> 2 If there are insufficient arguments for the format, the behavior is
+> undefined. If the format is exhausted while arguments remain, the excess
+> arguments are evaluated (as always) but are otherwise ignored.
+
+> 9 If a conversion specification is invalid, the behavior is undefined.239) If
+> any argument is not the correct type for the corresponding conversion
+> specification, the behavior is undefined.
 
 sequence:
 
@@ -39,3 +39,6 @@ sequence:
 - A conversion specifier character that specifies the type of conversion to be
   applied.
 
+
+> 14 The fprintf function returns the number of characters transmitted, or a
+> negative value if an output or encoding error occurred.
