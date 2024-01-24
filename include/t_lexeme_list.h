@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:16:14 by poss              #+#    #+#             */
-/*   Updated: 2024/01/24 07:23:30 by poss             ###   ########.fr       */
+/*   Updated: 2024/01/24 07:46:56 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ typedef struct s_lexeme_node
 	const t_lexeme lexeme;
 	struct s_lexeme_node* next;
 } t_lexeme_node;
+
+t_lexeme_node* lexeme_node_new(const char* start, const char* end);
 
 typedef struct s_lexeme_list {
 	t_lexeme_node* head;

@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:39:17 by poss              #+#    #+#             */
-/*   Updated: 2024/01/24 07:42:38 by poss             ###   ########.fr       */
+/*   Updated: 2024/01/24 07:46:30 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ TEST_TEAR_DOWN(LexemeList) {}
 
 TEST(LexemeList, NewNode)
 {
-    int expected = 0;
-    int actual = 0;
-
-    char error[100];
-    sprintf(error, "Error found, expected %d was %d", expected, actual);
-    TEST_ASSERT_MESSAGE(expected == actual, error);
+	const char* src = "abcdefgh";
+	t_lexeme_node* node = lexeme_node_new(src, src + 3);
+	t_lexeme lexeme = node->lexeme;
+    TEST_ASSERT_EQUAL(lexeme.start, src);
+    TEST_ASSERT_EQUAL(lexeme.end, src + 3);
+    TEST_ASSERT_EQUAL(node->next, NULL);
 }
 
 TEST_GROUP_RUNNER(LexemeList)
