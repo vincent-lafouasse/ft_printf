@@ -2,11 +2,22 @@
 
 must handle:
 
+- d, i int
+    - The precision specifies the minimum number of digits to appear (default 1)
+    - The result of converting a zero value with a precision of zero is no
+      characters.
+- u, X, x unsigned int
+    - same
 - c
+    - If no l length modifier is present, the int argument is converted to an
+      unsigned char, and the resulting character is written. If an l length
+      modifier is present, the wint_t argument is converted as if by an ls
+      conversion specification with no precision and an argument that points to
+      the initial element of a two-element array of wchar_t, the first element
+      containing the wint_t argument to the lc conversion specification and the
+      second a null wide character.
 - s
 - p
-- d, i int
-- u, X, x unsigned int
 - %
 
 `-O.`
