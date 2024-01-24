@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:39:17 by poss              #+#    #+#             */
-/*   Updated: 2024/01/24 07:46:30 by poss             ###   ########.fr       */
+/*   Updated: 2024/01/24 07:48:28 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,16 @@ TEST(LexemeList, NewNode)
     TEST_ASSERT_EQUAL(node->next, NULL);
 }
 
+TEST(LexemeList, NewList)
+{
+	t_lexeme_list list = lexeme_list_new();
+	TEST_ASSERT_EQUAL(list.head, NULL);
+	TEST_ASSERT_EQUAL(list.tail, NULL);
+}
+
 TEST_GROUP_RUNNER(LexemeList)
 {
     printf("\e[34m----- LexemeList -----\e[0m\n");
     RUN_TEST_CASE(LexemeList, NewNode);
+    RUN_TEST_CASE(LexemeList, NewList);
 }
