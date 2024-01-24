@@ -17,6 +17,7 @@ must handle:
       containing the wint_t argument to the lc conversion specification and the
       second a null wide character.
 - s
+    - If the precision is specified, no more than that many bytes are written.
 - p
 - %
 
