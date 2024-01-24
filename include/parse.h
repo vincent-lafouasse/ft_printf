@@ -6,13 +6,15 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:14:06 by poss              #+#    #+#             */
-/*   Updated: 2024/01/24 07:15:46 by poss             ###   ########.fr       */
+/*   Updated: 2024/01/24 07:20:40 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PARSE_H
 #define PARSE_H
 
-#include "t_lexeme.h"
+#include "t_lexeme_list.h"
+
+t_lexeme_list split_lexemes(const char* format);
 
 #endif
