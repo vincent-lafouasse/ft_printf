@@ -6,13 +6,13 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:25:23 by poss              #+#    #+#             */
-/*   Updated: 2024/01/24 07:34:24 by poss             ###   ########.fr       */
+/*   Updated: 2024/01/24 07:36:36 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "t_lexeme_list.h"
-
 #include <stdlib.h>
+#include <string.h>
 
 t_lexeme_list lexeme_list_new(void)
 {
@@ -31,6 +31,8 @@ t_lexeme_node* lexeme_node_new(const char* start, const char* end)
 	out = malloc(sizeof(*out));
 	lexeme.start = start;
 	lexeme.end = end;
+	memcpy((void*)&(out->lexeme), &lexeme, sizeof(lexeme));
+	out->next = NULL;
 	return out;
 }
 
