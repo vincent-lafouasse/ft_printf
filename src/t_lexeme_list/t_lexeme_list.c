@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:25:23 by poss              #+#    #+#             */
-/*   Updated: 2024/01/24 07:36:36 by poss             ###   ########.fr       */
+/*   Updated: 2024/01/24 07:37:46 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,14 +38,14 @@ t_lexeme_node* lexeme_node_new(const char* start, const char* end)
 
 void lexeme_list_push(t_lexeme_list* l, const char* start, const char* end)
 {
-	t_lexeme lexeme;
-
-	lexeme.start = start;
-	lexeme.end = end;
 	if (l->head == NULL)
 	{
-		l->head = 
+		l->head = lexeme_node_new(start, end);
+		l->tail = l->head;
+		return ;
 	}
+	l->tail->next = lexeme_node_new(start, end);
+	l->tail = l->tail->next;
 }
 
 void lexeme_list_clear(t_lexeme_list* l);
