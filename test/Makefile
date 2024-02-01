@@ -25,6 +25,8 @@ CFLAGS += $(INC_FLAGS)
 test: $(BUILD_DIR)/$(EXEC)
 	@./$< -v
 
+build: $(BUILD_DIR)/$(EXEC)
+
 # Linking
 $(BUILD_DIR)/$(EXEC): $(OBJS)
 	make lib$(LIB).a -C ..

@@ -79,8 +79,9 @@ check: re
 .PHONY: update
 update:
 	make clean
+	make clean -C test
 	mkdir -p $(BUILD_DIR)
-	bear --output $(BUILD_DIR)/compile_commands.json -- make build
+	bear --output $(BUILD_DIR)/compile_commands.json -- make build -C test
 
 # aliases
 .PHONY: b f c u t
