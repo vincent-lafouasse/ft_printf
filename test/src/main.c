@@ -5,6 +5,7 @@ static void runAllTests()
 {
     RUN_TEST_GROUP(ReturnValue);
     RUN_TEST_GROUP(LexemeList);
+    RUN_TEST_GROUP(ParseLexemes);
 }
 
 int main(int ac, const char** av)
