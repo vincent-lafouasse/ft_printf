@@ -54,9 +54,10 @@ static void assert_lexeme_list(t_lexeme_list* l,
         assert_lexeme(current->lexeme, *expected);
         current = current->next;
         expected++;
+		sz--;
     }
-    TEST_ASSERT_EQUAL(current, NULL);
-    TEST_ASSERT_EQUAL(sz, 0);
+    TEST_ASSERT_EQUAL_MESSAGE(sz, 0, "Not enough lexemes");
+    TEST_ASSERT_EQUAL_MESSAGE(current, NULL, "Too many lexemes");
 }
 
 TEST(ParseLexemes, Dummy)
