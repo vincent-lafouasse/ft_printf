@@ -15,7 +15,7 @@ INC_FLAGS := $(addprefix -I,$(INC_DIRS))
 
 ###
 CFLAGS  = -std=c99
-CFLAGS += -g
+CFLAGS += -g3
 CFLAGS += -Wall -Wextra
 #CFLAGS += -Werror
 CFLAGS += $(INC_FLAGS)
@@ -24,8 +24,6 @@ CFLAGS += $(INC_FLAGS)
 .PHONY: test
 test: $(BUILD_DIR)/$(EXEC)
 	@./$< -v
-
-build: $(BUILD_DIR)/$(EXEC)
 
 # Linking
 $(BUILD_DIR)/$(EXEC): $(OBJS)
