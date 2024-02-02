@@ -11,14 +11,14 @@
 /* ************************************************************************** */
 
 #ifndef T_LEXEME_H
-#define T_LEXEME_H
+# define T_LEXEME_H
 
-#include <stdbool.h>
+# include <stdbool.h>
 
 typedef struct s_lexeme
 {
-	const char* start;
-	const char* end;
-} t_lexeme;
+	const char	*start;
+	const char	*end;
+}				t_lexeme;
 
 #endif

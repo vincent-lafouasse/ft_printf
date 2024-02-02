@@ -11,25 +11,28 @@
 /* ************************************************************************** */
 
 #ifndef T_LEXEME_LIST_H
-#define T_LEXEME_LIST_H
+# define T_LEXEME_LIST_H
 
-#include "t_lexeme.h"
+# include "t_lexeme.h"
 
 typedef struct s_lexeme_node
 {
-	const t_lexeme lexeme;
-	struct s_lexeme_node* next;
-} t_lexeme_node;
+	const t_lexeme			lexeme;
+	struct s_lexeme_node	*next;
+}							t_lexeme_node;
 
-t_lexeme_node* lexeme_node_new(const char* start, const char* end);
+t_lexeme_node				*lexeme_node_new(const char *start,
+								const char *end);
 
-typedef struct s_lexeme_list {
-	t_lexeme_node* head;
-	t_lexeme_node* tail;
-} t_lexeme_list;
+typedef struct s_lexeme_list
+{
+	t_lexeme_node			*head;
+	t_lexeme_node			*tail;
+}							t_lexeme_list;
 
-t_lexeme_list lexeme_list_new(void);
-void lexeme_list_push(t_lexeme_list* l, const char* start, const char* end);
-void lexeme_list_clear(t_lexeme_list* l);
+t_lexeme_list				lexeme_list_new(void);
+void						lexeme_list_push(t_lexeme_list *l,
+								const char *start, const char *end);
+void						lexeme_list_clear(t_lexeme_list *l);
 
 #endif

@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #ifndef PARSE_H
-#define PARSE_H
+# define PARSE_H
 
-#include "t_lexeme_list.h"
+# include "t_lexeme_list.h"
 
-t_lexeme_list split_lexemes(const char* format);
+t_lexeme_list	split_lexemes(const char *format);
 
 #endif
