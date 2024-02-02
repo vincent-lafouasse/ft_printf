@@ -21,9 +21,13 @@ CFLAGS += -Wall -Wextra
 CFLAGS += $(INC_FLAGS)
 
 
-.PHONY: test
-test: $(BUILD_DIR)/$(EXEC)
-	@./$< -v
+.PHONY: test build run
+test: run
+
+run: build
+	@$(BUILD_DIR)/$(EXEC)
+
+build: $(BUILD_DIR)/$(EXEC)
 
 # Linking
 $(BUILD_DIR)/$(EXEC): $(OBJS)

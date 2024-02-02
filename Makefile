@@ -7,8 +7,6 @@ INC_DIR   = ./include
 INTERNAL_INC_DIR = ./src/internal_h
 BUILD_DIR = ./build
 
-LIB_H = $(INC_DIR)/$(LIB)
-
 C_FILES = $(shell find $(SRC_DIR) -name '*.c')
 OBJS := $(C_FILES:%=$(BUILD_DIR)/%.o)
 DEPS := $(OBJS:%.o=%.d)
@@ -67,12 +65,12 @@ check: re
 	@echo
 	@norminette $(C_FILES)
 	@echo
-	@norminette $(LIB_H)
+	@norminette $(INC_DIR)
 	@printf "$(GREEN)===============NORME OK===============$(NC)\n"
 	@echo
 	@cppcheck --language=c $(C_FILES)
 
-	@cppcheck --language=c $(LIB_H)
+	@cppcheck --language=c $(INC_DIR)/*.h
 	@printf "$(GREEN)===============CPPCHECK OK===============$(NC)\n"
 
 # LSP stuff, don't worry about it
