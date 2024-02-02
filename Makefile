@@ -49,7 +49,7 @@ fclean: clean
 re: fclean update
 
 .PHONY: test
-test: $(LIB)
+test:
 	@make -C test
 
 .PHONY: fmt

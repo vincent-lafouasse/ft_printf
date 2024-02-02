@@ -25,9 +25,12 @@ CFLAGS += $(INC_FLAGS)
 test: run
 
 run: build
-	@$(BUILD_DIR)/$(EXEC)
+	@$(BUILD_DIR)/$(EXEC) -v
 
-build: $(BUILD_DIR)/$(EXEC)
+build:
+	make clean
+	make fclean -C ..
+	make $(BUILD_DIR)/$(EXEC)
 
 # Linking
 $(BUILD_DIR)/$(EXEC): $(OBJS)
