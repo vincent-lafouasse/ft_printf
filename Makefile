@@ -15,7 +15,7 @@ format:
 	echo todo
 
 update:
-	cmake -B $(BUILD_DIR)
+	cmake -Wno-dev -B $(BUILD_DIR)
 
 .PHONY: all build test clean update
 .PHONY: b t c f u

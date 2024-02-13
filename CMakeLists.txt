@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(ft_printf)
+project(ft_printf LANGUAGES C CXX)
 
-set(CMAKE_C_STANDARD 90)
+set(CMAKE_C_STANDARD 99)
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE) # LSP stuff, don't worry about it
 
 add_library(printf
