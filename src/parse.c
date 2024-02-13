@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:55:02 by poss              #+#    #+#             */
-/*   Updated: 2024/01/24 08:06:51 by poss             ###   ########.fr       */
+/*   Updated: 2024/02/13 23:27:58 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ t_lexeme_list	split_lexemes(const char *format)
 		}
 		else
 		{
+			format++;
 			while (!is_conversion_specifier(*format))
 				format++;
 			lexeme_list_push(&lexemes, start, ++format);
