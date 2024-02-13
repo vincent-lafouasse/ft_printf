@@ -54,8 +54,8 @@ static void assert_lexeme_list_equality(
         i++;
     }
 
-    ASSERT_LT(i, size) << "Not enough lexemes";
-    ASSERT_NE(current, nullptr) << "Too many lexemes";
+    ASSERT_EQ(i, size) << "Not enough lexemes";
+    ASSERT_EQ(current, nullptr) << "Too many lexemes";
 }
 
 TEST(ParseLexemes, Dummy)
