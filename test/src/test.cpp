@@ -1,13 +1,15 @@
-#include "gtest/gtest.h"
 #include <stdlib.h>
+#include "gtest/gtest.h"
 
-extern "C" {
+extern "C"
+{
 #include "ft_printf.h"
 };
 
-TEST(ReturnValue, Empty) {
-	int expected = 0;
-	int actual = ft_printf("");
+TEST(ReturnValue, Empty)
+{
+    int expected = 0;
+    int actual = ft_printf("");
 
-	ASSERT_EQ(expected, actual);
+    ASSERT_EQ(expected, actual);
 }
