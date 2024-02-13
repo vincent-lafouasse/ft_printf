@@ -35,3 +35,28 @@ TEST(LexemeList, NewNode)
     assert_lexeme_equality(node2->lexeme, "e");
     ASSERT_EQ(node2->next, nullptr);
 }
+
+TEST(LexemeList, NewList)
+{
+    t_lexeme_list l = lexeme_list_new();
+    ASSERT_EQ(l.head, nullptr);
+    ASSERT_EQ(l.tail, nullptr);
+}
+
+TEST(LexemeList, ListPush)
+{
+    const char* src = "abcdefgh";
+
+    t_lexeme_list list = lexeme_list_new();
+
+    lexeme_list_push(&list, src, src + 4);
+    ASSERT_NE(list.head, nullptr);
+    ASSERT_EQ(list.head, list.tail);
+    assert_lexeme_equality(list.head->lexeme, "abcd");
+
+    lexeme_list_push(&list, src + 3, src + 7);
+    ASSERT_NE(list.head, nullptr);
+    ASSERT_NE(list.head, list.tail);
+    assert_lexeme_equality(list.head->lexeme, "abcd");
+    assert_lexeme_equality(list.tail->lexeme, "defg");
+}
