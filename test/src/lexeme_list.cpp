@@ -8,14 +8,13 @@ extern "C"
 
 static void assert_lexeme_equality(t_lexeme lexeme, const char* expected)
 {
-    int64_t size = lexeme.end - lexeme.start;
-
-    if (size < 0)
+    if (lexeme.end < lexeme.start)
     {
         FAIL() << "invalid lexeme, end is before start";
         return;
     }
 
+    size_t size = lexeme.end - lexeme.start;
     const std::string lexeme__(lexeme.start, size);
     const std::string expected__(expected);
 
