@@ -58,10 +58,26 @@ static void assert_lexeme_list_equality(
     ASSERT_EQ(current, nullptr) << "Too many lexemes";
 }
 
-TEST(ParseLexemes, Dummy)
+TEST(ParseLexemes, Simple)
+{
+    t_lexeme_list l = split_lexemes("abc");
+    const std::vector<const char*> expected = {"abc"};
+
+    assert_lexeme_list_equality(&l, expected);
+}
+
+TEST(ParseLexemes, OneSpecifier)
 {
     t_lexeme_list l = split_lexemes("abc%c");
     const std::vector<const char*> expected = {"abc", "%c"};
+
+    assert_lexeme_list_equality(&l, expected);
+}
+
+TEST(ParseLexemes, TwoSpecifier)
+{
+    t_lexeme_list l = split_lexemes("abc  %c  %abc");
+    const std::vector<const char*> expected = {"abc  ", "%c", "  ", "%abc"};
 
     assert_lexeme_list_equality(&l, expected);
 }
