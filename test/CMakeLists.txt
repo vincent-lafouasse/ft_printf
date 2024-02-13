@@ -5,8 +5,9 @@ set(CMAKE_CXX_STANDARD 17)
 include(${CMAKE_SOURCE_DIR}/test/fetch_gtest.cmake)
 
 add_executable(test_runner
-	src/test.cpp
 	src/main.cpp
+	src/test.cpp
+	src/lexeme_list.cpp
 )
 target_link_libraries(test_runner
     printf
