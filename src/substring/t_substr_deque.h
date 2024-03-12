@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_lexeme_list.h                                    :+:      :+:    :+:   */
+/*   t_substr_deque.h                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:16:14 by poss              #+#    #+#             */
-/*   Updated: 2024/01/24 07:46:56 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/12 20:12:00 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_LEXEME_LIST_H
-# define T_LEXEME_LIST_H
+#ifndef T_SUBSTR_DEQUE_H
+#define T_SUBSTR_DEQUE_H
 
-# include "t_lexeme.h"
+#include "substring/t_substr.h"
 
-typedef struct s_lexeme_node
+typedef struct s_substr_list
 {
-	const t_lexeme			lexeme;
-	struct s_lexeme_node	*next;
-}							t_lexeme_node;
+    const t_substr substr;
+    struct s_substr_list* next;
+} t_substr_list;
 
-t_lexeme_node				*lexeme_node_new(const char *start,
-								const char *end);
+t_substr_list* substr_list_new(const char* start, const char* end);
 
-typedef struct s_lexeme_list
+typedef struct s_substr_deque
 {
-	t_lexeme_node			*head;
-	t_lexeme_node			*tail;
-}							t_lexeme_list;
+    t_substr_list* head;
+    t_substr_list* tail;
+} t_substr_deque;
 
-t_lexeme_list				lexeme_list_new(void);
-void						lexeme_list_push(t_lexeme_list *l,
-								const char *start, const char *end);
-void						lexeme_list_clear(t_lexeme_list *l);
+t_substr_deque substr_deque_new(void);
+void substr_deque_push(t_substr_deque* l, const char* start, const char* end);
+void substr_deque_clear(t_substr_deque* l);
 
 #endif

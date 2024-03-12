@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_lexeme.h                                         :+:      :+:    :+:   */
+/*   split_raw_tokens.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 07:11:18 by poss              #+#    #+#             */
-/*   Updated: 2024/01/24 07:13:50 by poss             ###   ########.fr       */
+/*   Created: 2024/01/24 07:14:06 by poss              #+#    #+#             */
+/*   Updated: 2024/03/12 20:13:35 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_LEXEME_H
-# define T_LEXEME_H
+#ifndef PARSE_H
+#define PARSE_H
 
-# include <stdbool.h>
+#include "substring/t_substr_deque.h"
 
-typedef struct s_lexeme
-{
-	const char	*start;
-	const char	*end;
-}				t_lexeme;
+t_substr_deque split_raw_tokens(const char* format);
 
 #endif

@@ -1,20 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse.h                                            :+:      :+:    :+:   */
+/*   t_substr.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/24 07:14:06 by poss              #+#    #+#             */
-/*   Updated: 2024/01/24 07:20:40 by poss             ###   ########.fr       */
+/*   Created: 2024/01/24 07:11:18 by poss              #+#    #+#             */
+/*   Updated: 2024/03/12 19:43:35 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PARSE_H
-# define PARSE_H
+#ifndef T_SUBSTR_H
+#define T_SUBSTR_H
 
-# include "t_lexeme_list.h"
-
-t_lexeme_list	split_lexemes(const char *format);
+typedef struct s_substr
+{
+    const char* start;
+    const char* end;
+} t_substr;
 
 #endif
