@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_lexeme.h                                         :+:      :+:    :+:   */
+/*   t_substr.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:11:18 by poss              #+#    #+#             */
-/*   Updated: 2024/01/24 07:13:50 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/12 19:43:35 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_LEXEME_H
-# define T_LEXEME_H
+#ifndef T_SUBSTR_H
+# define T_SUBSTR_H
 
-# include <stdbool.h>
-
-typedef struct s_lexeme
+typedef struct s_substr
 {
 	const char	*start;
 	const char	*end;
-}				t_lexeme;
+}				t_substr;
 
 #endif

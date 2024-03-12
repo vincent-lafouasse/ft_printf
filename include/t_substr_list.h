@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_lexeme_list.h                                    :+:      :+:    :+:   */
+/*   t_substr_list.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:16:14 by poss              #+#    #+#             */
-/*   Updated: 2024/01/24 07:46:56 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/12 19:42:53 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef T_LEXEME_LIST_H
-# define T_LEXEME_LIST_H
+#ifndef T_SUBSTR_LIST_H
+# define T_SUBSTR_LIST_H
 
-# include "t_lexeme.h"
+# include "t_substr.h"
 
-typedef struct s_lexeme_node
+typedef struct s_substr_node
 {
-	const t_lexeme			lexeme;
-	struct s_lexeme_node	*next;
-}							t_lexeme_node;
+	const t_substr			substr;
+	struct s_substr_node	*next;
+}							t_substr_node;
 
-t_lexeme_node				*lexeme_node_new(const char *start,
+t_substr_node				*substr_node_new(const char *start,
 								const char *end);
 
-typedef struct s_lexeme_list
+typedef struct s_substr_list
 {
-	t_lexeme_node			*head;
-	t_lexeme_node			*tail;
-}							t_lexeme_list;
+	t_substr_node			*head;
+	t_substr_node			*tail;
+}							t_substr_list;
 
-t_lexeme_list				lexeme_list_new(void);
-void						lexeme_list_push(t_lexeme_list *l,
+t_substr_list				substr_list_new(void);
+void						substr_list_push(t_substr_list *l,
 								const char *start, const char *end);
-void						lexeme_list_clear(t_lexeme_list *l);
+void						substr_list_clear(t_substr_list *l);
 
 #endif
