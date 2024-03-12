@@ -14,4 +14,4 @@ target_compile_options(printf PUBLIC -Wall -Wextra -Wpedantic -g3)
 target_include_directories(printf PUBLIC include)
 target_include_directories(printf PUBLIC src)
 
-# add_subdirectory(test)
+add_subdirectory(test)

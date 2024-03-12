@@ -7,8 +7,8 @@ include(${CMAKE_SOURCE_DIR}/test/fetch_gtest.cmake)
 add_executable(test_runner
 	src/main.cpp
 	src/test.cpp
-	src/lexeme_list.cpp
-	src/parse_lexemes.cpp
+	src/split_raw_tokens.cpp
+	src/substr_deque.cpp
 )
 target_link_libraries(test_runner
     printf
