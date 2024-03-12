@@ -11,12 +11,12 @@
 /* ************************************************************************** */
 
 #ifndef T_SUBSTR_H
-# define T_SUBSTR_H
+#define T_SUBSTR_H
 
 typedef struct s_substr
 {
-	const char	*start;
-	const char	*end;
-}				t_substr;
+    const char* start;
+    const char* end;
+} t_substr;
 
 #endif

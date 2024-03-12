@@ -1,5 +1,5 @@
-#include <stddef.h>
 #include <stdbool.h>
+#include <stddef.h>
 
 typedef struct
 {
@@ -36,7 +36,7 @@ typedef struct
 
 // ----------------------------------------------------------------------------
 
-typedef enum 
+typedef enum
 {
     LITERAL,
     FORMAT,
