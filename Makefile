@@ -12,7 +12,7 @@ clean:
 	rm -rf $(BUILD_DIR)
 
 format:
-	echo todo
+	bash aux/format.sh
 
 update:
 	cmake -Wno-dev -B $(BUILD_DIR)
