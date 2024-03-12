@@ -23,14 +23,7 @@ static void log_substr(t_substr substr)
 
 static void assert_substr_equality(t_substr substr, const char* expected)
 {
-    if (substr.end < substr.start)
-    {
-        FAIL() << "invalid substr, end is before start";
-        return;
-    }
-
-    size_t size = substr.end - substr.start;
-    const std::string substr__(substr.start, size);
+    const std::string substr__(substr.start, substr.len);
     const std::string expected__(expected);
 
     ASSERT_EQ(substr__, expected__);
