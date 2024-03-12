@@ -10,6 +10,7 @@ extern "C"
 #include "raw_tokens/split_raw_tokens.h"
 }
 
+/*
 static void log_substr(t_substr substr)
 {
     while (substr.start != substr.end)
@@ -18,7 +19,6 @@ static void log_substr(t_substr substr)
         substr.start++;
     }
 }
-/*
 */
 
 static void assert_substr_equality(t_substr substr, const char* expected)
