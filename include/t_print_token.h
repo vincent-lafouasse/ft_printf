@@ -11,7 +11,7 @@ typedef struct
 
 typedef enum
 {
-	SIGNED,
+    SIGNED,
     UNSIGNED,
     STRING,
     CHAR,
