@@ -14,8 +14,9 @@ H_DIR='./include'
 
 C_FILES=$(find $SRC_DIR -name '*.c')
 H_FILES=$(find $H_DIR -name '*.h')
+INTERNAL_H_FILES=$(find $SRC_DIR -name '*.h')
 
-TO_NORM="$C_FILES $H_FILES"
+TO_NORM="$C_FILES $H_FILES $INTERNAL_H_FILES"
 
 for file in $TO_NORM; do
 	norm "$file"

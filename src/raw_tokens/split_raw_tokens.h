@@ -11,10 +11,10 @@
 /* ************************************************************************** */
 
 #ifndef PARSE_H
-#define PARSE_H
+# define PARSE_H
 
-#include "substring/t_substr_deque.h"
+# include "substring/t_substr_deque.h"
 
-t_substr_deque split_raw_tokens(const char* format);
+t_substr_deque	split_raw_tokens(const char *format);
 
 #endif

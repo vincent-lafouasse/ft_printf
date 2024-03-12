@@ -3,53 +3,53 @@
 
 typedef struct
 {
-    const char* start;
-    const char* end;
-} t_literal_token;
+	const char				*start;
+	const char				*end;
+}							t_literal_token;
 
 // ----------------------------------------------------------------------------
 
 typedef enum
 {
-    SIGNED,
-    UNSIGNED,
-    STRING,
-    CHAR,
-} t_type_specifier;
+	SIGNED,
+	UNSIGNED,
+	STRING,
+	CHAR,
+}							t_type_specifier;
 
 typedef enum
 {
-    NONE,
-    LONG,
-} t_type_modifier;
+	NONE,
+	LONG,
+}							t_type_modifier;
 
 typedef struct
 {
-    const t_type_specifier type;
-    const t_type_modifier type_modifier;
-    const size_t minimum_field_width;
-    const size_t precision;
-    const bool pad_left;
-    const char pad_with;
-    const bool show_sign;
-} t_format_token;
+	const t_type_specifier	type;
+	const t_type_modifier	type_modifier;
+	const size_t			minimum_field_width;
+	const size_t			precision;
+	const bool				pad_left;
+	const char				pad_with;
+	const bool				show_sign;
+}							t_format_token;
 
 // ----------------------------------------------------------------------------
 
 typedef enum
 {
-    LITERAL,
-    FORMAT,
-} t_token_type;
+	LITERAL,
+	FORMAT,
+}							t_token_type;
 
 typedef union
 {
-    t_literal_token literal;
-    t_format_token format;
-} t_any_token;
+	t_literal_token			literal;
+	t_format_token			format;
+}							t_any_token;
 
 typedef struct
 {
-    t_token_type type;
-    t_any_token data;
-} t_token;
+	t_token_type			type;
+	t_any_token				data;
+}							t_token;
