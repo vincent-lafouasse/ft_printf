@@ -6,11 +6,11 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:25:23 by poss              #+#    #+#             */
-/*   Updated: 2024/03/12 19:51:31 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/12 20:06:14 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "t_substr_list.h"
+#include "substring/t_substr_list.h"
 #include <stdlib.h>
 #include <string.h>
 

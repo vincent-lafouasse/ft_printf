@@ -6,14 +6,14 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:16:14 by poss              #+#    #+#             */
-/*   Updated: 2024/03/12 19:42:53 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/12 20:06:24 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef T_SUBSTR_LIST_H
 # define T_SUBSTR_LIST_H
 
-# include "t_substr.h"
+# include "substring/t_substr.h"
 
 typedef struct s_substr_node
 {
