@@ -1,13 +1,7 @@
 #include <stdbool.h>
 #include <stddef.h>
 
-typedef struct
-{
-	const char				*start;
-	const char				*end;
-}							t_literal_token;
-
-// ----------------------------------------------------------------------------
+#include "substring/t_substr.h"
 
 typedef enum
 {
@@ -44,7 +38,7 @@ typedef enum
 
 typedef union
 {
-	t_literal_token			literal;
+	t_substr				literal;
 	t_format_token			format;
 }							t_any_token;
 
