@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:16:14 by poss              #+#    #+#             */
-/*   Updated: 2024/03/12 21:11:56 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/19 17:03:44 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 typedef struct s_substr_list
 {
-	const t_substr			substr;
+	t_substr				substr;
 	struct s_substr_list	*next;
 }							t_substr_list;
 

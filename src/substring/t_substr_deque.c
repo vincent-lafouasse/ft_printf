@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:25:23 by poss              #+#    #+#             */
-/*   Updated: 2024/03/12 21:13:08 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/19 17:04:07 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,9 @@ t_substr_deque	substr_deque_new(void)
 t_substr_list	*substr_list_new(const char *start, size_t len)
 {
 	t_substr_list	*out;
-	t_substr		substr;
 
 	out = malloc(sizeof(*out));
-	substr.start = start;
-	memcpy((void *)&(substr.len), &len, sizeof(len));
-	memcpy((void *)&(out->substr), &substr, sizeof(substr));
+	out->substr = substr_make(start, len);
 	out->next = NULL;
 	return (out);
 }
