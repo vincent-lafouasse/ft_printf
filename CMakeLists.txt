@@ -9,6 +9,7 @@ add_library(printf
 	src/ft_printf.c
 	src/raw_tokens/split_raw_tokens.c
 	src/substring/t_substr_deque.c
+	src/t_deque/t_deque.c
 )
 target_compile_options(printf PUBLIC -Wall -Wextra -Wpedantic -g3)
 target_include_directories(printf PUBLIC include)
