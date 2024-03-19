@@ -5,7 +5,7 @@ all: test
 build:
 	cmake --build $(BUILD_DIR)
 
-test: build
+test: update build
 	make -C hand_test
 
 clean:
