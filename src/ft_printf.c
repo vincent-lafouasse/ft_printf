@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 22:38:17 by poss              #+#    #+#             */
-/*   Updated: 2024/03/19 18:24:29 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/19 19:55:36 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,15 @@ typedef struct
 } t_substr;
  
 // ---------------------------------------
+
+size_t print_char(unsigned char);
+size_t print_string(const char*);
+size_t print_pointer(void*);
+size_t print_integer(int);
+size_t print_unsigned(unsigned int);
+size_t print_lowercase_hex(unsigned int);
+size_t print_uppercase_hex(unsigned int);
+size_t print_literal(t_substr);
 
 bool is_specifier(char c)
 {
