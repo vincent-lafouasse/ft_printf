@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 22:38:17 by poss              #+#    #+#             */
-/*   Updated: 2024/03/19 17:47:27 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/19 17:58:44 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,13 @@ static void print_substring(t_substr substr)
 int	ft_printf(const char *format, ...)
 {
 	t_substr_deque raw_tokens = split_raw_tokens(format);
+	t_substr current_raw_token;
 	t_token current_token;
 
 	while (!substr_deque_isempty(raw_tokens))
 	{
-		current_token = parse_raw_token(substr_deque_pop_front(&raw_tokens));
+		current_raw_token = substr_deque_pop_front(&raw_tokens);
+		current_token = parse_raw_token(current_raw_token);
 		if (current_token.type == LITERAL)
 			print_substring(current_token.data.literal);
 	}
