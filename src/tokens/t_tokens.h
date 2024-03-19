@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   t_tokens.h                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/03/19 14:48:27 by poss              #+#    #+#             */
+/*   Updated: 2024/03/19 14:53:42 by poss             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdbool.h>
 #include <stddef.h>
 
@@ -9,6 +21,10 @@ typedef enum
 	UNSIGNED,
 	STRING,
 	CHAR,
+	UPPERCASE_HEX,
+	LOWERCASE_HEX,
+	POINTER,
+	PERCENT,
 }							t_type_specifier;
 
 typedef enum
