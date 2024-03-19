@@ -5,3 +5,4 @@ build/
 local*
 *.a
 main.c
+**/exec*
