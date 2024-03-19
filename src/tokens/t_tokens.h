@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 14:48:27 by poss              #+#    #+#             */
-/*   Updated: 2024/03/19 14:53:42 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/19 17:34:58 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef enum
 	LOWERCASE_HEX,
 	POINTER,
 	PERCENT,
+	INVALID,
 }							t_type_specifier;
 
 typedef enum
@@ -35,13 +36,13 @@ typedef enum
 
 typedef struct
 {
-	const t_type_specifier	type;
-	const t_type_modifier	type_modifier;
-	const size_t			minimum_field_width;
-	const size_t			precision;
-	const bool				pad_left;
-	const char				pad_with;
-	const bool				show_sign;
+	t_type_specifier	type;
+	t_type_modifier	type_modifier;
+	size_t			minimum_field_width;
+	size_t			precision;
+	bool				pad_left;
+	char				pad_with;
+	bool				show_sign;
 }							t_format_token;
 
 // ----------------------------------------------------------------------------
@@ -63,3 +64,5 @@ typedef struct
 	t_token_type			type;
 	t_any_token				data;
 }							t_token;
+
+t_token parse_raw_token(t_substr raw_token);
