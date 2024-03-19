@@ -5,8 +5,8 @@ all: test
 build:
 	cmake --build $(BUILD_DIR)
 
-test: build
-	$(BUILD_DIR)/test/test_runner
+test: update build
+	make -C hand_test
 
 clean:
 	rm -rf $(BUILD_DIR)
