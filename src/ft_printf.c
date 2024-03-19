@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 22:38:17 by poss              #+#    #+#             */
-/*   Updated: 2024/03/19 22:22:48 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/19 22:25:18 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 #include <stdarg.h>
 
 const char* conversion_specifiers = "cspdiuxX%";
+
+const char* null_repr = "(null)";
 
 typedef struct
 {
