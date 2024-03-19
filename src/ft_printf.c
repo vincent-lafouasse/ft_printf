@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 22:38:17 by poss              #+#    #+#             */
-/*   Updated: 2024/03/19 20:05:11 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/19 22:22:48 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <stdarg.h>
 
 const char* conversion_specifiers = "cspdiuxX%";
 
@@ -87,25 +88,26 @@ t_substr get_next_token(const char* format)
     return token;
 }
 
+size_t print_token(const t_substr* token, va_list args);
+
 int ft_printf(const char* format, ...)
 {
     t_substr token;
-    char specifier;
     size_t total_len = 0;
+    va_list args;
+
+    va_start(args, format);
 
     token = get_next_token(format);
 
     while (token.len != 0)
     {
-        specifier = get_specifier(token);
-        switch (specifier)
-        {
-            case 's':
-                total_len += print_string(0);
-        }
+        total_len += print_token(&token, args);
         format += token.len;
         token = get_next_token(format);
     }
+
+    va_end(args);
 
     return (total_len);
 }
