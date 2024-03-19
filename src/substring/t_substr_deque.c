@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:25:23 by poss              #+#    #+#             */
-/*   Updated: 2024/03/19 17:05:17 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/19 17:12:42 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,9 @@ void	substr_deque_push_back(t_substr_deque *l, const char *start,
 	l->tail = l->tail->next;
 }
 
-void			substr_deque_clear(t_substr_deque *l);
+bool substr_deque_isempty(t_substr_deque deque)
+{
+	return deque.head == NULL;
+}
+
+void substr_deque_clear(t_substr_deque *p_deque);

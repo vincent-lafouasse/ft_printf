@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:16:14 by poss              #+#    #+#             */
-/*   Updated: 2024/03/19 17:05:11 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/19 17:11:57 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define T_SUBSTR_DEQUE_H
 
 # include "substring/t_substr.h"
+# include <stdbool.h>
 
 typedef struct s_substr_list
 {
@@ -32,6 +33,7 @@ typedef struct s_substr_deque
 t_substr_deque				substr_deque_new(void);
 void						substr_deque_push_back(t_substr_deque *l,
 								const char *start, size_t len);
-void						substr_deque_clear(t_substr_deque *l);
+void						substr_deque_clear(t_substr_deque *);
+bool						substr_deque_isempty(t_substr_deque);
 
 #endif
