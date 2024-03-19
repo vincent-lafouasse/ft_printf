@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:55:02 by poss              #+#    #+#             */
-/*   Updated: 2024/03/12 21:15:02 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/19 17:05:37 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ t_substr_deque	split_raw_tokens(const char *format)
 		{
 			while (*format && *format != '%')
 				format++;
-			substr_deque_push(&raw_tokens, start, format - start);
+			substr_deque_push_back(&raw_tokens, start, format - start);
 		}
 		else
 		{
 			format++;
 			while (!is_conversion_specifier(*format))
 				format++;
-			substr_deque_push(&raw_tokens, start, format + 1 - start);
+			substr_deque_push_back(&raw_tokens, start, format + 1 - start);
 			format++;
 		}
 	}

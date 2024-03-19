@@ -41,12 +41,12 @@ TEST(SubstringDeque, DequePush)
 
     t_substr_deque deque = substr_deque_new();
 
-    substr_deque_push(&deque, src, 4);
+    substr_deque_push_back(&deque, src, 4);
     ASSERT_NE(deque.head, nullptr);
     ASSERT_EQ(deque.head, deque.tail);
     assert_substr_equality(deque.head->substr, "abcd");
 
-    substr_deque_push(&deque, src + 3, 4);
+    substr_deque_push_back(&deque, src + 3, 4);
     ASSERT_NE(deque.head, nullptr);
     ASSERT_NE(deque.head, deque.tail);
     assert_substr_equality(deque.head->substr, "abcd");

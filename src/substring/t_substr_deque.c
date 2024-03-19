@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:25:23 by poss              #+#    #+#             */
-/*   Updated: 2024/03/19 17:04:07 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/19 17:05:17 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ t_substr_list	*substr_list_new(const char *start, size_t len)
 	return (out);
 }
 
-void	substr_deque_push(t_substr_deque *l, const char *start,
+void	substr_deque_push_back(t_substr_deque *l, const char *start,
 		const size_t len)
 {
 	if (l->head == NULL)
