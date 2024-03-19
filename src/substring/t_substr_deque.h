@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/24 07:16:14 by poss              #+#    #+#             */
-/*   Updated: 2024/03/19 17:11:57 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/19 17:17:24 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_substr_deque
 t_substr_deque				substr_deque_new(void);
 void						substr_deque_push_back(t_substr_deque *l,
 								const char *start, size_t len);
+t_substr					substr_deque_pop_front(t_substr_deque *);
 void						substr_deque_clear(t_substr_deque *);
 bool						substr_deque_isempty(t_substr_deque);
 
