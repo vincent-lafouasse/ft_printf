@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 22:38:17 by poss              #+#    #+#             */
-/*   Updated: 2024/03/19 18:21:16 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/19 18:24:29 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,25 @@
 
 const char* conversion_specifiers = "cspdiuxX%";
 
-bool is_specifier(char c)
-{
-	return strchr(conversion_specifiers, c);
-}
-
 typedef struct
 {
 	const char* start;
 	size_t len;
 } t_substr;
+ 
+// ---------------------------------------
 
-void print_token(t_substr token)
+bool is_specifier(char c)
+{
+	return strchr(conversion_specifiers, c);
+}
+
+char get_specifier(t_substr token)
+{
+	return token.start[token.len - 1];
+}
+
+void log_token(t_substr token)
 {
 	printf("token:\n\t");
 	for (size_t i = 0; i < token.len; i++)
@@ -64,12 +71,13 @@ int	ft_printf(const char *format, ...)
 	t_substr token;
 
 	token = get_next_token(format);
-	print_token(token);
-	format += token.len;
 
-	token = get_next_token(format);
-	print_token(token);
-	format += token.len;
+	while (token.len != 0)
+	{
+		log_token(token);
+		format += token.len;
+		token = get_next_token(format);
+	}
 
 	return (0);
 }
