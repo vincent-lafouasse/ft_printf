@@ -14,34 +14,32 @@
 #include <stdbool.h>
 #include <string.h>
 
-const char* conversion_specifiers = "cspdiuxX%";
+const char	*conversion_specifiers = "cspdiuxX%";
 
-static bool is_specifier(char c);
+static bool	is_specifier(char c);
 
-t_substr get_next_token(const char* format)
+t_substr	get_next_token(const char *format)
 {
-    t_substr token;
+	t_substr	token;
 
-    token.start = format;
-
-    if (*format != '%')
-    {
-        while (*format && !is_specifier(*format))
-            format++;
-        token.len = format - token.start;
-    }
-    else
-    {
-        format++;
-        while (!is_specifier(*format))
-            format++;
-        token.len = format + 1 - token.start;
-    }
-
-    return token;
+	token.start = format;
+	if (*format != '%')
+	{
+		while (*format && !is_specifier(*format))
+			format++;
+		token.len = format - token.start;
+	}
+	else
+	{
+		format++;
+		while (!is_specifier(*format))
+			format++;
+		token.len = format + 1 - token.start;
+	}
+	return (token);
 }
 
-static bool is_specifier(char c)
+static bool	is_specifier(char c)
 {
-    return strchr(conversion_specifiers, c);
+	return (strchr(conversion_specifiers, c));
 }

@@ -16,8 +16,8 @@
 
 typedef struct
 {
-    const char* start;
-    size_t len;
-} t_substr;
+	const char	*start;
+	size_t		len;
+}				t_substr;
 
-t_substr get_next_token(const char* format);
+t_substr		get_next_token(const char *format);

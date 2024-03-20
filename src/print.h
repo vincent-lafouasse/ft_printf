@@ -12,9 +12,8 @@
 
 #pragma once
 
-#include <stddef.h>
-#include <stdarg.h>
-
 #include "tokenize.h"
+#include <stdarg.h>
+#include <stddef.h>
 
-size_t print_token(t_substr token, va_list args);
+size_t	print_token(t_substr token, va_list args);
