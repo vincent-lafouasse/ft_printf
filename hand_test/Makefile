@@ -10,4 +10,4 @@ all:
 	./exec
 
 exec:
-	$(CC) $(CFLAGS) -I$(INCLUDE_PATH) -L$(LIBRARY_PATH) main.c -lprintf -o exec	
+	$(CC) $(CFLAGS) -I$(INCLUDE_PATH) -L$(LIBRARY_PATH) main.c -lftprintf -o exec	
