@@ -6,11 +6,12 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/20 18:53:19 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/20 19:05:06 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "print.h"
+#include "libft.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
@@ -20,7 +21,6 @@ static size_t	print_integer(va_list args);
 static size_t	print_literal(t_substr literal);
 static size_t	print_percent(void);
 static char		get_specifier(t_substr token);
-static void		ft_putchar(char c);
 
 size_t	print_token(t_substr token, va_list args)
 {
@@ -65,9 +65,4 @@ static size_t	print_percent(void)
 char	get_specifier(t_substr token)
 {
 	return (token.start[token.len - 1]);
-}
-
-static void		ft_putchar(char c)
-{
-	write(1, &c, 1);
 }

@@ -14,6 +14,11 @@ CFLAGS    = -Wall -Wextra -Werror -g3
 CPPFLAGS  = -I$(INCLUDE_DIR) -I$(INTERNAL_INCLUDE_DIR)
 CPPFLAGS += -MMD -MP
 
+LIBFT_PATH = ./lib/libft
+LIBFT = $(LIBFT_PATH)/libft.a
+OBJS += $(LIBFT)
+CPPFLAGS += -I$(LIBFT_PATH)/include
+
 ARFLAGS = rcs
 
 .PHONY: all
@@ -31,17 +36,21 @@ $(BUILD_DIR)/%.c.o: %.c
 	mkdir -p $(dir $@)
 	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
 
+$(LIBFT):
+	make -C $(LIBFT_PATH)
 
 .PHONY: re
 re: fclean build
 
 .PHONY: clean
 clean:
-	$(RM) $(NAME)
+	$(RM) -r $(BUILD_DIR)
+	$(RM) -r $(LIBFT_PATH)/$(BUILD_DIR)
 
 .PHONY: fclean
 fclean: clean
-	$(RM) -r $(BUILD_DIR)
+	$(RM) $(NAME)
+	$(RM) $(LIBFT)
 
 # LSP stuff, don't worry about it
 .PHONY: update
