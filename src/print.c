@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/20 18:50:45 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/20 18:53:19 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ static size_t	print_integer(va_list args);
 static size_t	print_literal(t_substr literal);
 static size_t	print_percent(void);
 static char		get_specifier(t_substr token);
+static void		ft_putchar(char c);
 
 size_t	print_token(t_substr token, va_list args)
 {
@@ -47,18 +48,26 @@ size_t	print_integer(va_list args)
 
 size_t	print_literal(t_substr literal)
 {
-	for (size_t i = 0; i < literal.len; i++)
-		printf("%c", literal.start[i]);
+	size_t i = 0;
+
+	while (i < literal.len)
+		ft_putchar(literal.start[i++]);
+		
 	return (literal.len);
 }
 
 static size_t	print_percent(void)
 {
-	write(1, "%", 1);
+	ft_putchar('%');
 	return 1;
 }
 
 char	get_specifier(t_substr token)
 {
 	return (token.start[token.len - 1]);
+}
+
+static void		ft_putchar(char c)
+{
+	write(1, &c, 1);
 }
