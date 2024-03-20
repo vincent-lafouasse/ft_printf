@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:38:50 by poss              #+#    #+#             */
-/*   Updated: 2024/03/20 14:39:44 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/20 18:14:45 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,7 @@
 
 const char* conversion_specifiers = "cspdiuxX%";
 
-bool is_specifier(char c)
-{
-    return strchr(conversion_specifiers, c);
-}
+static bool is_specifier(char c);
 
 t_substr get_next_token(const char* format)
 {
@@ -42,4 +39,9 @@ t_substr get_next_token(const char* format)
     }
 
     return token;
+}
+
+static bool is_specifier(char c)
+{
+    return strchr(conversion_specifiers, c);
 }
