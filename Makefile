@@ -1,4 +1,4 @@
-NAME = libprintf.a
+NAME = libftprintf.a
 
 BUILD_DIR            = ./build
 SRC_DIR              = ./src
