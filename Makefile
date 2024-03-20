@@ -1,26 +1,51 @@
-BUILD_DIR = build
+NAME = libprintf.a
 
-all: test
+.PHONY: all
+all: build
 
-build:
-	cmake --build $(BUILD_DIR)
+BUILD_DIR            = ./build
+SRC_DIR              = ./src
+INCLUDE_DIR          = ./include
+INTERNAL_INCLUDE_DIR = ./src
 
-test: update build
-	make -C hand_test
+SRCS = $(shell find $(SRC_DIR) -name *.c)
+OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
+DEPS := $(OBJS:.o=.d)
 
+CC        = cc
+CFLAGS    = -Wall -Wextra -Werror -g3
+CPPFLAGS  = -I$(INCLUDE_DIR) -I$(INTERNAL_INCLUDE_DIR)
+CPPFLAGS += -MMD -MP
+
+ARFLAGS = rcs
+
+.PHONY: build
+build: $(NAME)
+
+# Linking
+$(NAME): $(OBJS)
+	ar $(ARFLAGS) $@ $(OBJS)
+
+# Compilation
+$(BUILD_DIR)/%.c.o: %.c
+	mkdir -p $(dir $@)
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+
+
+.PHONY: re
+re: fclean build
+
+.PHONY: clean
 clean:
-	rm -rf $(BUILD_DIR)
+	$(RM) $(NAME)
 
-format:
-	bash aux/format.sh
+.PHONY: fclean
+fclean: clean
+	$(RM) -r $(BUILD_DIR)
 
+# LSP stuff, don't worry about it
+.PHONY: update
 update:
-	cmake -Wno-dev -B $(BUILD_DIR)
-
-.PHONY: all build test clean update
-.PHONY: b t c f u
-b: build
-t: test
-c: clean
-f: format
-u: update
+	make clean
+	mkdir -p $(BUILD_DIR)
+	bear --output $(BUILD_DIR)/compile_commands.json -- make build
