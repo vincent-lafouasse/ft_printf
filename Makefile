@@ -44,11 +44,13 @@ re: fclean build
 
 .PHONY: clean
 clean:
-	$(RM) $(NAME)
+	$(RM) -r $(BUILD_DIR)
+	$(RM) -r $(LIBFT_PATH)/$(BUILD_DIR)
 
 .PHONY: fclean
 fclean: clean
-	$(RM) -r $(BUILD_DIR)
+	$(RM) $(NAME)
+	$(RM) $(LIBFT)
 
 # LSP stuff, don't worry about it
 .PHONY: update
