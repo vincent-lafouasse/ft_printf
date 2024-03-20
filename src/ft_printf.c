@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 22:38:17 by poss              #+#    #+#             */
-/*   Updated: 2024/03/19 22:25:18 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/20 14:31:59 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,18 @@ typedef struct
 
 // ---------------------------------------
 
-size_t print_char(unsigned char c)
+size_t print_integer(va_list args)
 {
-    return printf("%c", c);
+    int to_print = va_arg(args, int); 
+    return printf("%d", to_print);
 }
-size_t print_string(const char* s)
+
+size_t print_literal(t_substr literal)
 {
-    return printf("%s", s);
+    for (size_t i = 0; i < literal.len; i++)
+        printf("%c", literal.start[i]);
+    return literal.len;
 }
-size_t print_pointer(void* p)
-{
-    return printf("%p", p);
-}
-size_t print_integer(int i)
-{
-    return printf("%i", i);
-}
-size_t print_unsigned(unsigned int);
-size_t print_lowercase_hex(unsigned int);
-size_t print_uppercase_hex(unsigned int);
-size_t print_literal(t_substr);
 
 bool is_specifier(char c)
 {
@@ -90,7 +82,16 @@ t_substr get_next_token(const char* format)
     return token;
 }
 
-size_t print_token(const t_substr* token, va_list args);
+size_t print_token(t_substr token, va_list args)
+{
+    if (token.start[0] != '%')
+        return print_literal(token);
+    
+    char conversion_specifier = get_specifier(token);
+    if (strchr("id", conversion_specifier))
+        return print_integer(args);
+    return 0;
+}
 
 int ft_printf(const char* format, ...)
 {
@@ -104,7 +105,7 @@ int ft_printf(const char* format, ...)
 
     while (token.len != 0)
     {
-        total_len += print_token(&token, args);
+        total_len += print_token(token, args);
         format += token.len;
         token = get_next_token(format);
     }
