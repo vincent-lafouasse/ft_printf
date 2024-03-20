@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/20 19:05:06 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/20 23:26:30 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,14 @@ size_t	print_literal(t_substr literal)
 	size_t i = 0;
 
 	while (i < literal.len)
-		ft_putchar(literal.start[i++]);
+		ft_putchar_fd(literal.start[i++], 1);
 		
 	return (literal.len);
 }
 
 static size_t	print_percent(void)
 {
-	ft_putchar('%');
+	ft_putchar_fd('%', 1);
 	return 1;
 }
 
