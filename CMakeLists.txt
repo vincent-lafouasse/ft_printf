@@ -7,6 +7,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE) # LSP stuff, don't worry about it
 
 add_library(printf
 	src/ft_printf.c
+	src/tokenize.c
+	src/print.c
 )
 target_compile_options(printf PUBLIC -Wall -Wextra -Wpedantic -g3)
 target_include_directories(printf PUBLIC include)
