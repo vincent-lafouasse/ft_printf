@@ -20,6 +20,9 @@ CPPFLAGS += -MMD -MP
 .PHONY: build
 build: $(NAME)
 
+$(NAME):
+	echo hello
+
 .PHONY: re
 re: fclean build
 
