@@ -29,7 +29,6 @@ build: $(NAME)
 
 # Linking
 $(NAME): $(LIBFT) $(OBJS)
-	cp $< $@
 	ar $(ARFLAGS) $@ $(OBJS)
 
 # Compilation
