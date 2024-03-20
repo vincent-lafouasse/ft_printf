@@ -16,7 +16,6 @@ CPPFLAGS += -MMD -MP
 
 LIBFT_PATH = ./lib/libft
 LIBFT = $(LIBFT_PATH)/libft.a
-OBJS += $(LIBFT)
 CPPFLAGS += -I$(LIBFT_PATH)/include
 
 ARFLAGS = rcs
