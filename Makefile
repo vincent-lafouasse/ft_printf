@@ -1,8 +1,5 @@
 NAME = libprintf.a
 
-.PHONY: all
-all: build
-
 BUILD_DIR            = ./build
 SRC_DIR              = ./src
 INCLUDE_DIR          = ./include
@@ -18,6 +15,9 @@ CPPFLAGS  = -I$(INCLUDE_DIR) -I$(INTERNAL_INCLUDE_DIR)
 CPPFLAGS += -MMD -MP
 
 ARFLAGS = rcs
+
+.PHONY: all
+all: build
 
 .PHONY: build
 build: $(NAME)
