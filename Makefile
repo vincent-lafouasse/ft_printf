@@ -43,3 +43,9 @@ clean:
 fclean: clean
 	$(RM) -r $(BUILD_DIR)
 
+# LSP stuff, don't worry about it
+.PHONY: update
+update:
+	make clean
+	mkdir -p $(BUILD_DIR)
+	bear --output $(BUILD_DIR)/compile_commands.json -- make build
