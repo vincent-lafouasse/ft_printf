@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/21 15:20:18 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/03/21 15:22:47 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 
 #define STDOUT 1
 #define NULL_REPR "(null)"
+#define DECIMAL "0123456789"
 
 static size_t		print_unsigned(va_list args);
 static size_t		print_integer(va_list args);
@@ -28,14 +29,15 @@ static char			get_specifier(t_substr token);
 static size_t		get_n_digits(unsigned long long int n, size_t base);
 static unsigned int	ft_abs(int n);
 
-static void	ft_put_unsigned(unsigned int n)
+static void	ft_put_unsigned(unsigned int n, const char* charset)
 {
-	if (n < 10)
-		ft_putchar_fd(n + '0', STDOUT);
+	size_t base = ft_strlen(charset);
+	if (n < base)
+		ft_putchar_fd(charset[n], STDOUT);
 	else
 	{
-		ft_put_unsigned(n / 10);
-		ft_put_unsigned(n % 10);
+		ft_put_unsigned(n / base, charset);
+		ft_put_unsigned(n % base, charset);
 	}
 }
 
@@ -91,7 +93,7 @@ static size_t	print_unsigned(va_list args)
 	unsigned int	to_print;
 
 	to_print = va_arg(args, unsigned int);
-	ft_put_unsigned(to_print);
+	ft_put_unsigned(to_print, DECIMAL);
 	if (to_print == 0)
 		return (1);
 	return (get_n_digits(to_print, 10));
