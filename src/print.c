@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/21 13:56:43 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:03:10 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,12 @@ static char		get_specifier(t_substr token);
 static size_t	get_n_digits(unsigned long long int n);
 static unsigned int ft_abs(int n);
 
+static size_t	print_char(va_list args)
+{
+	ft_putchar_fd(va_arg(args, int), STDOUT);
+	return 1;
+}
+
 size_t	print_token(t_substr token, va_list args)
 {
 	char	conversion_specifier;
@@ -38,6 +44,8 @@ size_t	print_token(t_substr token, va_list args)
 		return (print_integer(args));
 	if (conversion_specifier == '%')
 		return (print_percent());
+	if (conversion_specifier == 'c')
+		return (print_char(args));
 	return (0);
 }
 
