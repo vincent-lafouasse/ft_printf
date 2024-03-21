@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/21 14:43:16 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/03/21 15:20:18 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static size_t		print_integer(va_list args);
 static size_t		print_literal(t_substr literal);
 static size_t		print_percent(void);
 static char			get_specifier(t_substr token);
-static size_t		get_n_digits(unsigned long long int n);
+static size_t		get_n_digits(unsigned long long int n, size_t base);
 static unsigned int	ft_abs(int n);
 
 static void	ft_put_unsigned(unsigned int n)
@@ -83,7 +83,7 @@ size_t	print_integer(va_list args)
 	ft_putnbr_fd(to_print, STDOUT);
 	if (to_print == 0)
 		return (1);
-	return (to_print < 0) + get_n_digits(ft_abs(to_print));
+	return (to_print < 0) + get_n_digits(ft_abs(to_print), 10);
 }
 
 static size_t	print_unsigned(va_list args)
@@ -94,7 +94,7 @@ static size_t	print_unsigned(va_list args)
 	ft_put_unsigned(to_print);
 	if (to_print == 0)
 		return (1);
-	return (get_n_digits(to_print));
+	return (get_n_digits(to_print, 10));
 }
 
 size_t	print_literal(t_substr literal)
@@ -118,7 +118,7 @@ char	get_specifier(t_substr token)
 	return (token.start[token.len - 1]);
 }
 
-static size_t	get_n_digits(unsigned long long int n)
+static size_t	get_n_digits(unsigned long long int n, size_t base)
 {
 	size_t	n_digits;
 
@@ -126,7 +126,7 @@ static size_t	get_n_digits(unsigned long long int n)
 	while (n)
 	{
 		n_digits++;
-		n /= 10;
+		n /= base;
 	}
 	return (n_digits);
 }
