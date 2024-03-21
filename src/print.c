@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/21 15:26:33 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/03/21 15:31:06 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@
 #include <unistd.h>
 
 #define STDOUT 1
-#define NULL_REPR "(null)"
+#define NULL_STRING_REPR "(null)"
 #define DECIMAL "0123456789"
 #define LOWERCASE_HEX DECIMAL "abcdef"
 #define UPPERCASE_HEX DECIMAL "ABCDEF"
 
 static size_t		print_unsigned(va_list args, const char* charset);
 static size_t		print_integer(va_list args);
+static size_t		print_pointer(va_list args);
 static size_t		print_literal(t_substr literal);
 static size_t		print_percent(void);
 static char			get_specifier(t_substr token);
@@ -54,7 +55,7 @@ static size_t	print_string(va_list args)
 	const char	*to_print = va_arg(args, const char *);
 
 	if (!to_print)
-		to_print = NULL_REPR;
+		to_print = NULL_STRING_REPR;
 	ft_putstr_fd(to_print, STDOUT);
 	return (ft_strlen(to_print));
 }
@@ -74,6 +75,10 @@ size_t	print_token(t_substr token, va_list args)
 		return (print_char(args));
 	if (conversion_specifier == 'u')
 		return (print_unsigned(args, DECIMAL));
+	if (conversion_specifier == 'x')
+		return (print_unsigned(args, LOWERCASE_HEX));
+	if (conversion_specifier == 'X')
+		return (print_unsigned(args, UPPERCASE_HEX));
 	if (conversion_specifier == 's')
 		return (print_string(args));
 	return (0);
@@ -100,6 +105,8 @@ static size_t	print_unsigned(va_list args, const char* charset)
 		return (1);
 	return (get_n_digits(to_print, ft_strlen(charset)));
 }
+
+static size_t		print_pointer(va_list args);
 
 size_t	print_literal(t_substr literal)
 {
