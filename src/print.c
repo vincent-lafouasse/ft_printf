@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/21 15:38:05 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/03/21 15:42:05 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdint.h>
 
 #define STDOUT 1
 #define NULL_STRING_REPR "(null)"
@@ -31,10 +32,10 @@ static size_t		print_pointer(va_list args);
 static size_t		print_literal(t_substr literal);
 static size_t		print_percent(void);
 static char			get_specifier(t_substr token);
-static size_t		get_n_digits(unsigned long long int n, size_t base);
+static size_t		get_n_digits(uint64_t n, size_t base);
 static unsigned int	ft_abs(int n);
 
-static void	ft_put_unsigned(unsigned int n, const char* charset)
+static void	ft_put_unsigned(uint64_t n, const char* charset)
 {
 	size_t base = ft_strlen(charset);
 	if (n < base)
@@ -101,7 +102,7 @@ size_t	print_integer(va_list args)
 
 static size_t	print_unsigned(va_list args, const char* charset)
 {
-	unsigned int	to_print;
+	uint64_t	to_print;
 
 	to_print = va_arg(args, unsigned int);
 	ft_put_unsigned(to_print, charset);
@@ -120,8 +121,8 @@ static size_t		print_pointer(va_list args)
 		return (ft_strlen(NULL_POINTER_REPR));
 	}
 	ft_putstr_fd(POINTER_PREFIX, STDOUT);
-	ft_put_unsigned((unsigned long)to_print, LOWERCASE_HEX);
-	return ft_strlen(POINTER_PREFIX) + get_n_digits((unsigned long)to_print, ft_strlen(LOWERCASE_HEX));
+	ft_put_unsigned((uint64_t)to_print, LOWERCASE_HEX);
+	return ft_strlen(POINTER_PREFIX) + get_n_digits((uint64_t)to_print, ft_strlen(LOWERCASE_HEX));
 }
 
 size_t	print_literal(t_substr literal)
@@ -145,7 +146,7 @@ char	get_specifier(t_substr token)
 	return (token.start[token.len - 1]);
 }
 
-static size_t	get_n_digits(unsigned long long int n, size_t base)
+static size_t	get_n_digits(uint64_t n, size_t base)
 {
 	size_t	n_digits;
 
