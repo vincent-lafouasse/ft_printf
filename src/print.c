@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/21 15:31:06 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/03/21 15:38:05 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,11 @@
 
 #define STDOUT 1
 #define NULL_STRING_REPR "(null)"
+#define NULL_POINTER_REPR "(nil)"
 #define DECIMAL "0123456789"
 #define LOWERCASE_HEX DECIMAL "abcdef"
 #define UPPERCASE_HEX DECIMAL "ABCDEF"
+#define POINTER_PREFIX "0x"
 
 static size_t		print_unsigned(va_list args, const char* charset);
 static size_t		print_integer(va_list args);
@@ -81,6 +83,8 @@ size_t	print_token(t_substr token, va_list args)
 		return (print_unsigned(args, UPPERCASE_HEX));
 	if (conversion_specifier == 's')
 		return (print_string(args));
+	if (conversion_specifier == 'p')
+		return (print_pointer(args));
 	return (0);
 }
 
@@ -106,7 +110,19 @@ static size_t	print_unsigned(va_list args, const char* charset)
 	return (get_n_digits(to_print, ft_strlen(charset)));
 }
 
-static size_t		print_pointer(va_list args);
+static size_t		print_pointer(va_list args)
+{
+	const void* to_print = va_arg(args, void*);
+
+	if (to_print == NULL)
+	{
+		ft_putstr_fd(NULL_POINTER_REPR, STDOUT);
+		return (ft_strlen(NULL_POINTER_REPR));
+	}
+	ft_putstr_fd(POINTER_PREFIX, STDOUT);
+	ft_put_unsigned((unsigned long)to_print, LOWERCASE_HEX);
+	return ft_strlen(POINTER_PREFIX) + get_n_digits((unsigned long)to_print, ft_strlen(LOWERCASE_HEX));
+}
 
 size_t	print_literal(t_substr literal)
 {
