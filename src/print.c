@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/21 14:23:02 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:43:16 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,24 @@
 #define STDOUT 1
 #define NULL_REPR "(null)"
 
+static size_t print_unsigned(va_list args);
 static size_t	print_integer(va_list args);
 static size_t	print_literal(t_substr literal);
 static size_t	print_percent(void);
 static char		get_specifier(t_substr token);
 static size_t	get_n_digits(unsigned long long int n);
 static unsigned int ft_abs(int n);
+
+static void	ft_put_unsigned(unsigned int n)
+{
+	if (n < 10)
+		ft_putchar_fd(n + '0', STDOUT);
+	else
+	{
+		ft_put_unsigned(n / 10);
+		ft_put_unsigned(n % 10);
+	}
+}
 
 static size_t	print_char(va_list args)
 {
@@ -55,6 +67,8 @@ size_t	print_token(t_substr token, va_list args)
 		return (print_percent());
 	if (conversion_specifier == 'c')
 		return (print_char(args));
+	if (conversion_specifier == 'u')
+		return print_unsigned(args);
 	if (conversion_specifier == 's')
 		return print_string(args);
 	return (0);
@@ -69,6 +83,15 @@ size_t	print_integer(va_list args)
 	if (to_print == 0)
 		return 1;
 	return (to_print < 0) + get_n_digits(ft_abs(to_print));
+}
+
+static size_t print_unsigned(va_list args)
+{
+	unsigned int to_print = va_arg(args, unsigned int);
+	ft_put_unsigned(to_print);
+	if (to_print == 0)
+		return 1;
+	return get_n_digits(to_print);
 }
 
 size_t	print_literal(t_substr literal)
