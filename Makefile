@@ -10,7 +10,8 @@ OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
 DEPS := $(OBJS:.o=.d)
 
 CC        = cc
-CFLAGS    = -Wall -Wextra -Werror -g3
+CFLAGS    = -Wall -Wextra -g3
+#CFLAGS   += -Werror
 CPPFLAGS  = -I$(INCLUDE_DIR) -I$(INTERNAL_INCLUDE_DIR)
 CPPFLAGS += -MMD -MP
 
