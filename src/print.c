@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print.h"
 #include "libft.h"
+#include "print.h"
 #include <stdbool.h>
 #include <stdio.h>
 #include <string.h>
@@ -20,13 +20,13 @@
 #define STDOUT 1
 #define NULL_REPR "(null)"
 
-static size_t print_unsigned(va_list args);
-static size_t	print_integer(va_list args);
-static size_t	print_literal(t_substr literal);
-static size_t	print_percent(void);
-static char		get_specifier(t_substr token);
-static size_t	get_n_digits(unsigned long long int n);
-static unsigned int ft_abs(int n);
+static size_t		print_unsigned(va_list args);
+static size_t		print_integer(va_list args);
+static size_t		print_literal(t_substr literal);
+static size_t		print_percent(void);
+static char			get_specifier(t_substr token);
+static size_t		get_n_digits(unsigned long long int n);
+static unsigned int	ft_abs(int n);
 
 static void	ft_put_unsigned(unsigned int n)
 {
@@ -42,16 +42,17 @@ static void	ft_put_unsigned(unsigned int n)
 static size_t	print_char(va_list args)
 {
 	ft_putchar_fd(va_arg(args, int), STDOUT);
-	return 1;
+	return (1);
 }
 
-static size_t print_string(va_list args)
+static size_t	print_string(va_list args)
 {
-	const char* to_print = va_arg(args, const char*);
+	const char	*to_print = va_arg(args, const char *);
+
 	if (!to_print)
 		to_print = NULL_REPR;
 	ft_putstr_fd(to_print, STDOUT);
-	return ft_strlen(to_print);
+	return (ft_strlen(to_print));
 }
 
 size_t	print_token(t_substr token, va_list args)
@@ -68,9 +69,9 @@ size_t	print_token(t_substr token, va_list args)
 	if (conversion_specifier == 'c')
 		return (print_char(args));
 	if (conversion_specifier == 'u')
-		return print_unsigned(args);
+		return (print_unsigned(args));
 	if (conversion_specifier == 's')
-		return print_string(args);
+		return (print_string(args));
 	return (0);
 }
 
@@ -81,33 +82,35 @@ size_t	print_integer(va_list args)
 	to_print = va_arg(args, int);
 	ft_putnbr_fd(to_print, STDOUT);
 	if (to_print == 0)
-		return 1;
+		return (1);
 	return (to_print < 0) + get_n_digits(ft_abs(to_print));
 }
 
-static size_t print_unsigned(va_list args)
+static size_t	print_unsigned(va_list args)
 {
-	unsigned int to_print = va_arg(args, unsigned int);
+	unsigned int	to_print;
+
+	to_print = va_arg(args, unsigned int);
 	ft_put_unsigned(to_print);
 	if (to_print == 0)
-		return 1;
-	return get_n_digits(to_print);
+		return (1);
+	return (get_n_digits(to_print));
 }
 
 size_t	print_literal(t_substr literal)
 {
-	size_t i = 0;
+	size_t	i;
 
+	i = 0;
 	while (i < literal.len)
 		ft_putchar_fd(literal.start[i++], STDOUT);
-		
 	return (literal.len);
 }
 
 static size_t	print_percent(void)
 {
 	ft_putchar_fd('%', STDOUT);
-	return 1;
+	return (1);
 }
 
 char	get_specifier(t_substr token)
@@ -117,18 +120,18 @@ char	get_specifier(t_substr token)
 
 static size_t	get_n_digits(unsigned long long int n)
 {
-	size_t n_digits = 0;
+	size_t	n_digits;
 
+	n_digits = 0;
 	while (n)
 	{
 		n_digits++;
 		n /= 10;
 	}
-
-	return n_digits;
+	return (n_digits);
 }
 
-static unsigned int ft_abs(int n)
+static unsigned int	ft_abs(int n)
 {
-	return ((n >= 0) - (n < 0)) * n;
+	return (((n >= 0) - (n < 0)) * n);
 }
