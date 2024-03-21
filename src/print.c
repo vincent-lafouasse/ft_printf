@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/21 14:08:43 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:23:02 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static size_t print_string(va_list args)
 {
 	const char* to_print = va_arg(args, const char*);
 	if (!to_print)
-		return 0;
+		to_print = NULL_REPR;
 	ft_putstr_fd(to_print, STDOUT);
 	return ft_strlen(to_print);
 }
