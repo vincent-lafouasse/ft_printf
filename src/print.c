@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/21 14:03:10 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/03/21 14:06:58 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ static size_t	print_char(va_list args)
 	return 1;
 }
 
+static size_t print_string(va_list args)
+{
+	const char* to_print = va_arg(args, const char*);
+	ft_putstr_fd(to_print, STDOUT);
+	return ft_strlen(to_print);
+}
+
 size_t	print_token(t_substr token, va_list args)
 {
 	char	conversion_specifier;
@@ -46,6 +53,8 @@ size_t	print_token(t_substr token, va_list args)
 		return (print_percent());
 	if (conversion_specifier == 'c')
 		return (print_char(args));
+	if (conversion_specifier == 's')
+		return print_string(args);
 	return (0);
 }
 
