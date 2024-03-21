@@ -52,6 +52,10 @@ fclean: clean
 	$(RM) $(NAME)
 	$(RM) $(LIBFT)
 
+.PHONY: test
+test: build
+	make -C test
+
 # LSP stuff, don't worry about it
 .PHONY: update
 update:
