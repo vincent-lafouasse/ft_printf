@@ -11,7 +11,7 @@ DEPS := $(OBJS:.o=.d)
 
 CC        = cc
 CFLAGS    = -Wall -Wextra -g3
-#CFLAGS   += -Werror
+CFLAGS   += -Werror
 CPPFLAGS  = -I$(INCLUDE_DIR) -I$(INTERNAL_INCLUDE_DIR)
 CPPFLAGS += -MMD -MP
 
@@ -53,10 +53,6 @@ fclean: clean
 	$(RM) $(NAME)
 	$(RM) $(LIBFT)
 
-.PHONY: test
-test: build
-	make -C test
-
 # LSP stuff, don't worry about it
 .PHONY: update
 update:
@@ -65,8 +61,7 @@ update:
 	bear --output $(BUILD_DIR)/compile_commands.json -- make build
 
 # aliases
-.PHONY: b c u t
+.PHONY: b c u
 b: build
 c: clean
 u: update
-t: test
