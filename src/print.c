@@ -6,15 +6,13 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/21 15:42:05 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/03/22 12:58:14 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "print.h"
 #include <stdbool.h>
-#include <stdio.h>
-#include <string.h>
 #include <unistd.h>
 #include <stdint.h>
 
@@ -70,7 +68,7 @@ size_t	print_token(t_substr token, va_list args)
 	if (token.start[0] != '%')
 		return (print_literal(token));
 	conversion_specifier = get_specifier(token);
-	if (strchr("id", conversion_specifier))
+	if (ft_strchr("id", conversion_specifier))
 		return (print_integer(args));
 	if (conversion_specifier == '%')
 		return (print_percent());

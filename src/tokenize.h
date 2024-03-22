@@ -6,11 +6,12 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:33:59 by poss              #+#    #+#             */
-/*   Updated: 2024/03/20 14:38:43 by poss             ###   ########.fr       */
+/*   Updated: 2024/03/22 13:00:17 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef TOKENIZE_H
+#define TOKENIZE_H
 
 #include <stddef.h>
 
@@ -21,3 +22,5 @@ typedef struct
 }				t_substr;
 
 t_substr		get_next_token(const char *format);
+
+#endif
