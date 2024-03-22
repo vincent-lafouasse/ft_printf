@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/22 12:58:14 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/03/22 13:09:50 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 #define NULL_STRING_REPR "(null)"
 #define NULL_POINTER_REPR "(nil)"
 #define DECIMAL "0123456789"
-#define LOWERCASE_HEX DECIMAL "abcdef"
-#define UPPERCASE_HEX DECIMAL "ABCDEF"
+#define LOWERCASE_HEX "0123456789abcdef"
+#define UPPERCASE_HEX "0123456789ABCDEF"
 #define POINTER_PREFIX "0x"
 
 static size_t		print_unsigned(va_list args, const char *charset);
@@ -97,7 +97,7 @@ size_t	print_integer(va_list args)
 	ft_putnbr_fd(to_print, STDOUT);
 	if (to_print == 0)
 		return (1);
-	return (to_print < 0) + get_n_digits(ft_abs(to_print), 10);
+	return ((to_print < 0) + get_n_digits(ft_abs(to_print), 10));
 }
 
 static size_t	print_unsigned(va_list args, const char *charset)
