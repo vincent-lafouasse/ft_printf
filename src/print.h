@@ -11,11 +11,11 @@
 /* ************************************************************************** */
 
 #ifndef PRINT_H
-#define PRINT_H
+# define PRINT_H
 
-#include "tokenize.h"
-#include <stdarg.h>
-#include <stddef.h>
+# include "tokenize.h"
+# include <stdarg.h>
+# include <stddef.h>
 
 size_t	print_token(t_substr token, va_list args);
 

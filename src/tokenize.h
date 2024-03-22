@@ -11,9 +11,9 @@
 /* ************************************************************************** */
 
 #ifndef TOKENIZE_H
-#define TOKENIZE_H
+# define TOKENIZE_H
 
-#include <stddef.h>
+# include <stddef.h>
 
 typedef struct
 {

@@ -13,8 +13,8 @@
 #include "libft.h"
 #include "print.h"
 #include <stdbool.h>
-#include <unistd.h>
 #include <stdint.h>
+#include <unistd.h>
 
 #define STDOUT 1
 #define NULL_STRING_REPR "(null)"
@@ -24,7 +24,7 @@
 #define UPPERCASE_HEX DECIMAL "ABCDEF"
 #define POINTER_PREFIX "0x"
 
-static size_t		print_unsigned(va_list args, const char* charset);
+static size_t		print_unsigned(va_list args, const char *charset);
 static size_t		print_integer(va_list args);
 static size_t		print_pointer(va_list args);
 static size_t		print_literal(t_substr literal);
@@ -33,9 +33,11 @@ static char			get_specifier(t_substr token);
 static size_t		get_n_digits(uint64_t n, size_t base);
 static unsigned int	ft_abs(int n);
 
-static void	ft_put_unsigned(uint64_t n, const char* charset)
+static void	ft_put_unsigned(uint64_t n, const char *charset)
 {
-	size_t base = ft_strlen(charset);
+	size_t	base;
+
+	base = ft_strlen(charset);
 	if (n < base)
 		ft_putchar_fd(charset[n], STDOUT);
 	else
@@ -98,7 +100,7 @@ size_t	print_integer(va_list args)
 	return (to_print < 0) + get_n_digits(ft_abs(to_print), 10);
 }
 
-static size_t	print_unsigned(va_list args, const char* charset)
+static size_t	print_unsigned(va_list args, const char *charset)
 {
 	uint64_t	to_print;
 
@@ -109,9 +111,9 @@ static size_t	print_unsigned(va_list args, const char* charset)
 	return (get_n_digits(to_print, ft_strlen(charset)));
 }
 
-static size_t		print_pointer(va_list args)
+static size_t	print_pointer(va_list args)
 {
-	const void* to_print = va_arg(args, void*);
+	const void	*to_print = va_arg(args, void *);
 
 	if (to_print == NULL)
 	{
@@ -120,7 +122,8 @@ static size_t		print_pointer(va_list args)
 	}
 	ft_putstr_fd(POINTER_PREFIX, STDOUT);
 	ft_put_unsigned((uint64_t)to_print, LOWERCASE_HEX);
-	return ft_strlen(POINTER_PREFIX) + get_n_digits((uint64_t)to_print, ft_strlen(LOWERCASE_HEX));
+	return (ft_strlen(POINTER_PREFIX) + get_n_digits((uint64_t)to_print,
+			ft_strlen(LOWERCASE_HEX)));
 }
 
 size_t	print_literal(t_substr literal)
