@@ -53,12 +53,14 @@ fclean: clean
 	$(RM) $(NAME)
 	$(RM) $(LIBFT)
 
+VERBOSITY = 
+
 # LSP stuff, don't worry about it
 .PHONY: update
 update:
 	make clean
 	mkdir -p $(BUILD_DIR)
-	bear --verbose --output $(BUILD_DIR)/compile_commands.json -- make build
+	bear $(VERBOSITY) --output $(BUILD_DIR)/compile_commands.json -- make build
 
 # aliases
 .PHONY: b c u
