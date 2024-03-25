@@ -6,11 +6,12 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 22:38:17 by poss              #+#    #+#             */
-/*   Updated: 2024/03/21 15:06:10 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:59:18 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print.h"
+#include "tokenize/tokenize.h"
+#include "print/print.h"
 
 int	ft_printf(const char *format, ...)
 {

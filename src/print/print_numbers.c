@@ -6,12 +6,12 @@
 /*   By: vlafouas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 15:38:21 by vlafouas          #+#    #+#             */
-/*   Updated: 2024/03/25 15:42:58 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/03/25 16:00:18 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "print.h"
+#include "print/print.h"
 
 #define STDOUT 1
 

@@ -6,12 +6,12 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/25 15:56:40 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:59:51 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include "print.h"
+#include "print/print.h"
 #include <stdbool.h>
 
 #define STDOUT 1
