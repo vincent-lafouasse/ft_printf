@@ -22,7 +22,7 @@
 #define UPPERCASE_HEX "0123456789ABCDEF"
 #define POINTER_PREFIX "0x"
 
-static char			get_specifier(t_substr token);
+static char	get_specifier(t_substr token);
 
 size_t	print_char(va_list args)
 {

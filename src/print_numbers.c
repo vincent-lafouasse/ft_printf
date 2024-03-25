@@ -17,7 +17,6 @@
 
 static unsigned int	ft_abs(int n);
 
-
 size_t	print_integer(va_list args)
 {
 	int	to_print;
