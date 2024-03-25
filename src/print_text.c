@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "print.h"
 #include "libft.h"
+#include "print.h"
 
 #define STDOUT 1
 #define NULL_STRING_REPR "(null)"
