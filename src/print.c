@@ -6,13 +6,13 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/25 15:50:37 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:56:40 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "print.h"
-#include <unistd.h>
+#include <stdbool.h>
 
 #define STDOUT 1
 #define NULL_POINTER_REPR "(nil)"
@@ -20,13 +20,14 @@
 #define LOWERCASE_HEX "0123456789abcdef"
 #define UPPERCASE_HEX "0123456789ABCDEF"
 
+static bool	token_is_literal(t_substr token);
 static char	get_specifier(t_substr token);
 
 size_t	print_token(t_substr token, va_list args)
 {
 	char	conversion_specifier;
 
-	if (token.start[0] != '%')
+	if (token_is_literal(token))
 		return (print_literal(token));
 	conversion_specifier = get_specifier(token);
 	if (ft_strchr("id", conversion_specifier))
@@ -46,6 +47,11 @@ size_t	print_token(t_substr token, va_list args)
 	if (conversion_specifier == 'p')
 		return (print_pointer(args));
 	return (0);
+}
+
+static bool	token_is_literal(t_substr token)
+{
+	return (token.len == 0 || token.start[0] != '%');
 }
 
 static char	get_specifier(t_substr token)
