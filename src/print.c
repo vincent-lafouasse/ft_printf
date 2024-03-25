@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/25 15:47:31 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:50:37 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 #define DECIMAL "0123456789"
 #define LOWERCASE_HEX "0123456789abcdef"
 #define UPPERCASE_HEX "0123456789ABCDEF"
-#define POINTER_PREFIX "0x"
 
 static char	get_specifier(t_substr token);
 
@@ -47,21 +46,6 @@ size_t	print_token(t_substr token, va_list args)
 	if (conversion_specifier == 'p')
 		return (print_pointer(args));
 	return (0);
-}
-
-size_t	print_pointer(va_list args)
-{
-	const void	*to_print = va_arg(args, void *);
-
-	if (to_print == NULL)
-	{
-		ft_putstr_fd(NULL_POINTER_REPR, STDOUT);
-		return (ft_strlen(NULL_POINTER_REPR));
-	}
-	ft_putstr_fd(POINTER_PREFIX, STDOUT);
-	ft_put_unsigned((uint64_t)to_print, LOWERCASE_HEX);
-	return (ft_strlen(POINTER_PREFIX) + get_n_digits((uint64_t)to_print,
-			ft_strlen(LOWERCASE_HEX)));
 }
 
 static char	get_specifier(t_substr token)
