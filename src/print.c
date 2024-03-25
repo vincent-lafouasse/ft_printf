@@ -6,14 +6,12 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/22 13:09:50 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/03/25 15:42:29 by vlafouas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "print.h"
-#include <stdbool.h>
-#include <stdint.h>
 #include <unistd.h>
 
 #define STDOUT 1
@@ -24,36 +22,15 @@
 #define UPPERCASE_HEX "0123456789ABCDEF"
 #define POINTER_PREFIX "0x"
 
-static size_t		print_unsigned(va_list args, const char *charset);
-static size_t		print_integer(va_list args);
-static size_t		print_pointer(va_list args);
-static size_t		print_literal(t_substr literal);
-static size_t		print_percent(void);
 static char			get_specifier(t_substr token);
-static size_t		get_n_digits(uint64_t n, size_t base);
-static unsigned int	ft_abs(int n);
 
-static void	ft_put_unsigned(uint64_t n, const char *charset)
-{
-	size_t	base;
-
-	base = ft_strlen(charset);
-	if (n < base)
-		ft_putchar_fd(charset[n], STDOUT);
-	else
-	{
-		ft_put_unsigned(n / base, charset);
-		ft_put_unsigned(n % base, charset);
-	}
-}
-
-static size_t	print_char(va_list args)
+size_t	print_char(va_list args)
 {
 	ft_putchar_fd(va_arg(args, int), STDOUT);
 	return (1);
 }
 
-static size_t	print_string(va_list args)
+size_t	print_string(va_list args)
 {
 	const char	*to_print = va_arg(args, const char *);
 
@@ -89,29 +66,7 @@ size_t	print_token(t_substr token, va_list args)
 	return (0);
 }
 
-size_t	print_integer(va_list args)
-{
-	int	to_print;
-
-	to_print = va_arg(args, int);
-	ft_putnbr_fd(to_print, STDOUT);
-	if (to_print == 0)
-		return (1);
-	return ((to_print < 0) + get_n_digits(ft_abs(to_print), 10));
-}
-
-static size_t	print_unsigned(va_list args, const char *charset)
-{
-	uint64_t	to_print;
-
-	to_print = va_arg(args, unsigned int);
-	ft_put_unsigned(to_print, charset);
-	if (to_print == 0)
-		return (1);
-	return (get_n_digits(to_print, ft_strlen(charset)));
-}
-
-static size_t	print_pointer(va_list args)
+size_t	print_pointer(va_list args)
 {
 	const void	*to_print = va_arg(args, void *);
 
@@ -136,31 +91,13 @@ size_t	print_literal(t_substr literal)
 	return (literal.len);
 }
 
-static size_t	print_percent(void)
+size_t	print_percent(void)
 {
 	ft_putchar_fd('%', STDOUT);
 	return (1);
 }
 
-char	get_specifier(t_substr token)
+static char	get_specifier(t_substr token)
 {
 	return (token.start[token.len - 1]);
-}
-
-static size_t	get_n_digits(uint64_t n, size_t base)
-{
-	size_t	n_digits;
-
-	n_digits = 0;
-	while (n)
-	{
-		n_digits++;
-		n /= base;
-	}
-	return (n_digits);
-}
-
-static unsigned int	ft_abs(int n)
-{
-	return (((n >= 0) - (n < 0)) * n);
 }
