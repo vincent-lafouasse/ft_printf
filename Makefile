@@ -27,6 +27,13 @@ all: build
 .PHONY: build
 build: $(NAME)
 
+.PHONY: example
+example: $(BUILD_DIR)/example
+	./$^
+
+$(BUILD_DIR)/example: example/main.c
+	$(CC) $(CFLAGS) -I./include $^ -L. -lftprintf -o $@
+
 # Linking
 $(NAME): $(LIBFT) $(OBJS)
 	cp $(LIBFT) $(NAME)
@@ -63,7 +70,8 @@ update:
 	bear $(VERBOSITY) --output $(BUILD_DIR)/compile_commands.json -- make build
 
 # aliases
-.PHONY: b c u
+.PHONY: b c u e
 b: build
 c: clean
 u: update
+e: example
