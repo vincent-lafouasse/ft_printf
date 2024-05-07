@@ -29,6 +29,7 @@ build: $(NAME)
 
 .PHONY: example
 example: $(BUILD_DIR)/example
+	cat example/main.c
 	./$^
 
 $(BUILD_DIR)/example: example/main.c
