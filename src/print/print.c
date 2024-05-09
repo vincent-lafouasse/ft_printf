@@ -6,7 +6,7 @@
 /*   By: poss <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/20 14:35:32 by poss              #+#    #+#             */
-/*   Updated: 2024/03/25 15:59:51 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/05/09 09:46:26 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 static bool	token_is_literal(t_substr token);
 static char	get_specifier(t_substr token);
 
-size_t	print_token(t_substr token, va_list args)
+size_t	print_token(t_substr token, va_list* args)
 {
 	char	conversion_specifier;
 

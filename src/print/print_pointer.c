@@ -6,7 +6,7 @@
 /*   By: vlafouas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 15:49:28 by vlafouas          #+#    #+#             */
-/*   Updated: 2024/03/25 16:00:26 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/05/09 09:47:42 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 #define LOWERCASE_HEX "0123456789abcdef"
 #define POINTER_PREFIX "0x"
 
-size_t	print_pointer(va_list args)
+size_t	print_pointer(va_list *args)
 {
-	const void	*to_print = va_arg(args, void *);
+	const void	*to_print = va_arg(*args, void *);
 
 	if (to_print == NULL)
 	{

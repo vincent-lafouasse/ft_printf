@@ -6,7 +6,7 @@
 /*   By: vlafouas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 15:38:21 by vlafouas          #+#    #+#             */
-/*   Updated: 2024/03/25 16:00:18 by vlafouas         ###   ########.fr       */
+/*   Updated: 2024/05/09 09:47:33 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@
 
 static unsigned int	ft_abs(int n);
 
-size_t	print_integer(va_list args)
+size_t	print_integer(va_list* args)
 {
 	int	to_print;
 
-	to_print = va_arg(args, int);
+	to_print = va_arg(*args, int);
 	ft_putnbr_fd(to_print, STDOUT);
 	if (to_print == 0)
 		return (1);
 	return ((to_print < 0) + get_n_digits(ft_abs(to_print), 10));
 }
 
-size_t	print_unsigned(va_list args, const char *charset)
+size_t	print_unsigned(va_list* args, const char *charset)
 {
 	uint64_t	to_print;
 
-	to_print = va_arg(args, unsigned int);
+	to_print = va_arg(*args, unsigned int);
 	ft_put_unsigned(to_print, charset);
 	if (to_print == 0)
 		return (1);
