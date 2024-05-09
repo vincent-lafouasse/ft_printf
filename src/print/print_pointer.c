@@ -6,7 +6,7 @@
 /*   By: vlafouas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/25 15:49:28 by vlafouas          #+#    #+#             */
-/*   Updated: 2024/05/09 09:47:42 by poss             ###   ########.fr       */
+/*   Updated: 2024/05/09 22:11:15 by poss             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "print/print.h"
 
 #define STDOUT 1
-#define NULL_POINTER_REPR "(nil)"
+#define NULL_POINTER_REPR "0x0"
 #define LOWERCASE_HEX "0123456789abcdef"
 #define POINTER_PREFIX "0x"
 
