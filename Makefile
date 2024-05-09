@@ -28,9 +28,9 @@ all: build
 build: $(NAME)
 
 .PHONY: example
-example: $(BUILD_DIR)/example
+example: $(BUILD_DIR)/example $(NAME)
 	cat example/main.c
-	./$^
+	./build/example
 
 $(BUILD_DIR)/example: example/main.c
 	$(CC) $(CFLAGS) -I./include $^ -L. -lftprintf -o $@
