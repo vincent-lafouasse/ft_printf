@@ -16,13 +16,13 @@
 #define STDOUT 1
 #define NULL_STRING_REPR "(null)"
 
-size_t	print_char(va_list* args)
+size_t	print_char(va_list *args)
 {
 	ft_putchar_fd(va_arg(*args, int), STDOUT);
 	return (1);
 }
 
-size_t	print_string(va_list* args)
+size_t	print_string(va_list *args)
 {
 	const char	*to_print = va_arg(*args, const char *);
 

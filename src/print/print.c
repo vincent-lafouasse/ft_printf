@@ -23,7 +23,7 @@
 static bool	token_is_literal(t_substr token);
 static char	get_specifier(t_substr token);
 
-size_t	print_token(t_substr token, va_list* args)
+size_t	print_token(t_substr token, va_list *args)
 {
 	char	conversion_specifier;
 

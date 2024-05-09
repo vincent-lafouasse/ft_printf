@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "tokenize/tokenize.h"
 #include "print/print.h"
+#include "tokenize/tokenize.h"
 
 int	ft_printf(const char *format, ...)
 {

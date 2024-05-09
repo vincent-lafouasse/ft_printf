@@ -18,14 +18,14 @@
 # include <stddef.h>
 # include <stdint.h>
 
-size_t	print_token(t_substr token, va_list* args);
+size_t	print_token(t_substr token, va_list *args);
 
-size_t	print_unsigned(va_list* args, const char *charset);
-size_t	print_integer(va_list* args);
-size_t	print_pointer(va_list* args);
+size_t	print_unsigned(va_list *args, const char *charset);
+size_t	print_integer(va_list *args);
+size_t	print_pointer(va_list *args);
 
-size_t	print_char(va_list* args);
-size_t	print_string(va_list* args);
+size_t	print_char(va_list *args);
+size_t	print_string(va_list *args);
 size_t	print_literal(t_substr literal);
 size_t	print_percent(void);
 

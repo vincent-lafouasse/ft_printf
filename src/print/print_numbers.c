@@ -17,7 +17,7 @@
 
 static unsigned int	ft_abs(int n);
 
-size_t	print_integer(va_list* args)
+size_t	print_integer(va_list *args)
 {
 	int	to_print;
 
@@ -28,7 +28,7 @@ size_t	print_integer(va_list* args)
 	return ((to_print < 0) + get_n_digits(ft_abs(to_print), 10));
 }
 
-size_t	print_unsigned(va_list* args, const char *charset)
+size_t	print_unsigned(va_list *args, const char *charset)
 {
 	uint64_t	to_print;
 
