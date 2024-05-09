@@ -4,7 +4,8 @@
 
 int main(void)
 {
-	ft_printf("%p\n", 0xBABECAFE);
+	ft_printf("%p\n", (void*)0xBABECAFE);
+	/*
 	ft_printf("hel");
 	ft_printf("");
 	ft_printf("lo\n\n");
@@ -17,4 +18,5 @@ int main(void)
 
 	ft_printf("%x\n", 0xBABECAFE);
 	ft_printf("%X\n", 0xBABECAFE);
+	*/
 }
