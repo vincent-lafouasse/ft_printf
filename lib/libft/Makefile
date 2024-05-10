@@ -8,7 +8,51 @@ BUILD_DIR = ./build
 
 LIB_H = $(INC_DIR)/libft.h
 
-C_FILES = $(shell find $(SRC_DIR) -name '*.c')
+C_FILES  = src/libc/ctype/ft_isdigit.c
+C_FILES += src/libc/ctype/ft_isascii.c
+C_FILES += src/libc/ctype/ft_isprint.c
+C_FILES += src/libc/ctype/ft_toupper.c
+C_FILES += src/libc/ctype/ft_isalpha.c
+C_FILES += src/libc/ctype/ft_isalnum.c
+C_FILES += src/libc/ctype/ft_tolower.c
+C_FILES += src/libc/strings/ft_bzero.c
+C_FILES += src/libc/stdlib/ft_calloc.c
+C_FILES += src/libc/stdlib/ft_atoi.c
+C_FILES += src/libc/string/ft_strnstr.c
+C_FILES += src/libc/string/ft_strlcpy.c
+C_FILES += src/libc/string/ft_strlen.c
+C_FILES += src/libc/string/ft_memcmp.c
+C_FILES += src/libc/string/ft_strchr.c
+C_FILES += src/libc/string/ft_memcpy.c
+C_FILES += src/libc/string/ft_strrchr.c
+C_FILES += src/libc/string/ft_memchr.c
+C_FILES += src/libc/string/ft_memset.c
+C_FILES += src/libc/string/ft_strncmp.c
+C_FILES += src/libc/string/ft_memmove.c
+C_FILES += src/libc/string/ft_strlcat.c
+C_FILES += src/libc/string/ft_strdup.c
+C_FILES += src/extension/io/ft_putstr_fd.c
+C_FILES += src/extension/io/ft_putnbr_fd.c
+C_FILES += src/extension/io/ft_putendl_fd.c
+C_FILES += src/extension/io/ft_putchar.c
+C_FILES += src/extension/io/ft_putchar_fd.c
+C_FILES += src/extension/string/ft_striteri.c
+C_FILES += src/extension/string/ft_strjoin.c
+C_FILES += src/extension/string/ft_split.c
+C_FILES += src/extension/string/ft_substr.c
+C_FILES += src/extension/string/ft_strmapi.c
+C_FILES += src/extension/string/ft_strtrim.c
+C_FILES += src/extension/string/ft_itoa.c
+C_FILES += src/list/ft_lstadd_back.c
+C_FILES += src/list/ft_lstnew.c
+C_FILES += src/list/ft_lstlast.c
+C_FILES += src/list/ft_lstclear.c
+C_FILES += src/list/ft_lstiter.c
+C_FILES += src/list/ft_lstmap.c
+C_FILES += src/list/ft_lstsize.c
+C_FILES += src/list/ft_lstadd_front.c
+C_FILES += src/list/ft_lstdelone.c
+
 OBJS := $(C_FILES:%=$(BUILD_DIR)/%.o)
 DEPS := $(OBJS:%.o=%.d)
 
