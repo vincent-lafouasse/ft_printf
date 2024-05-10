@@ -5,7 +5,13 @@ SRC_DIR              = ./src
 INCLUDE_DIR          = ./include
 INTERNAL_INCLUDE_DIR = ./src
 
-SRCS = $(shell find $(SRC_DIR) -name *.c)
+SRCS  = src/ft_printf.c
+SRCS += src/tokenize/tokenize.c
+SRCS += src/print/print.c
+SRCS += src/print/print_numbers.c
+SRCS += src/print/print_pointer.c
+SRCS += src/print/print_text.c
+
 OBJS := $(SRCS:%=$(BUILD_DIR)/%.o)
 DEPS := $(OBJS:.o=.d)
 
